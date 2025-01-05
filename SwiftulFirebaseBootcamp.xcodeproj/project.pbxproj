@@ -11,6 +11,8 @@
 		B58B34142D2B1CA800ADB39C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58B34132D2B1CA800ADB39C /* ContentView.swift */; };
 		B58B34162D2B1CA900ADB39C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58B34152D2B1CA900ADB39C /* Assets.xcassets */; };
 		B58B34192D2B1CA900ADB39C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58B34182D2B1CA900ADB39C /* Preview Assets.xcassets */; };
+		B58B34202D2B1F1300ADB39C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B58B341F2D2B1F1300ADB39C /* GoogleService-Info.plist */; };
+		B58B34232D2B206B00ADB39C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B58B34222D2B206B00ADB39C /* FirebaseAnalytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,7 @@
 		B58B34132D2B1CA800ADB39C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B58B34152D2B1CA900ADB39C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B58B34182D2B1CA900ADB39C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B58B341F2D2B1F1300ADB39C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58B34232D2B206B00ADB39C /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +58,7 @@
 				B58B34112D2B1CA800ADB39C /* SwiftulFirebaseBootcampApp.swift */,
 				B58B34132D2B1CA800ADB39C /* ContentView.swift */,
 				B58B34152D2B1CA900ADB39C /* Assets.xcassets */,
+				B58B341F2D2B1F1300ADB39C /* GoogleService-Info.plist */,
 				B58B34172D2B1CA900ADB39C /* Preview Content */,
 			);
 			path = SwiftulFirebaseBootcamp;
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = SwiftulFirebaseBootcamp;
+			packageProductDependencies = (
+				B58B34222D2B206B00ADB39C /* FirebaseAnalytics */,
+			);
 			productName = SwiftulFirebaseBootcamp;
 			productReference = B58B340E2D2B1CA800ADB39C /* SwiftulFirebaseBootcamp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = B58B34052D2B1CA800ADB39C;
+			packageReferences = (
+				B58B34212D2B206B00ADB39C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = B58B340F2D2B1CA800ADB39C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +138,7 @@
 			files = (
 				B58B34192D2B1CA900ADB39C /* Preview Assets.xcassets in Resources */,
 				B58B34162D2B1CA900ADB39C /* Assets.xcassets in Resources */,
+				B58B34202D2B1F1300ADB39C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +354,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B58B34212D2B206B00ADB39C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B58B34222D2B206B00ADB39C /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B58B34212D2B206B00ADB39C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B58B34062D2B1CA800ADB39C /* Project object */;
 }
