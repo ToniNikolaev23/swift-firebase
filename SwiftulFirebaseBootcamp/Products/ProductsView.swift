@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 @MainActor
 final class ProductsViewModel: ObservableObject {
@@ -13,11 +14,8 @@ final class ProductsViewModel: ObservableObject {
     @Published private(set) var products: [Product] = []
     @Published var selectedFilter: FilterOption? = nil
     @Published var selectedCategory: CategoryOption? = nil
-    
-//    func getAllProducts() async throws {
-//        self.products = try await ProductsManager.shared.getAllProducts()
-//    }
-    
+    private var lastDocument: DocumentSnapshot? = nil
+
     enum FilterOption: String, CaseIterable {
         case noFilter
         case priceHigh
@@ -34,6 +32,7 @@ final class ProductsViewModel: ObservableObject {
     
     func filterSelected(option: FilterOption) async throws {
         self.selectedFilter = option
+        self.lastDocument = nil
         self.getProducts()
         
     }
@@ -55,23 +54,51 @@ final class ProductsViewModel: ObservableObject {
     
     func categorySelected(option: CategoryOption) async throws {
         self.selectedCategory = option
+        self.lastDocument = nil
         self.getProducts()
         
     }
     
     func getProducts() {
         Task {
-            self.products = try await ProductsManager.shared.getAllProducts(priceDescending: selectedFilter?.priceDescending, forCategory: selectedCategory?.categoryKey)
+            let (newProducts, lastDocument) = try await ProductsManager.shared.getAllProducts(priceDescending: selectedFilter?.priceDescending, forCategory: selectedCategory?.categoryKey, count: 10, lastDocument: lastDocument)
+            
+            self.products.append(contentsOf: newProducts)
+            if let lastDocument {
+                self.lastDocument = lastDocument
+            }
+            
         }
     }
+    
+//    func getProductsByRating() {
+//        Task {
+////            let newProducts  = try await ProductsManager.shared.getProductByRating(count: 3, lastRating: self.products.last?.rating)
+//            let (newProducts, lastDocument) = try await ProductsManager.shared.getProductByRating(count: 3, lastDocument: lastDocument)
+//            self.products.append(contentsOf: newProducts)
+//            self.lastDocument = lastDocument
+//        }
+//    }
 }
 
 struct ProductsView: View {
     @StateObject private var viewModel = ProductsViewModel()
     var body: some View {
         List {
+//            Button(action: {
+//                viewModel.getProductsByRating()
+//            }, label: {
+//                Text("Fetch more")
+//            })
             ForEach(viewModel.products) { product in
                ProductCellView(product: product)
+                
+                if product == viewModel.products.last {
+                    ProgressView()
+                        .onAppear{
+                            viewModel.getProducts()
+                        }
+                }
             }
         }
         .navigationTitle("Products")
