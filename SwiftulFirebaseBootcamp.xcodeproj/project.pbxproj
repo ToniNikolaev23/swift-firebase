@@ -34,6 +34,9 @@
 		B5B6A6DB2D329B7400B6ABC5 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A6DA2D329B7400B6ABC5 /* ProductsView.swift */; };
 		B5B6A6DD2D329DD700B6ABC5 /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A6DC2D329DD700B6ABC5 /* ProductsManager.swift */; };
 		B5B6A6E02D32A5F700B6ABC5 /* ProductCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A6DF2D32A5F700B6ABC5 /* ProductCellView.swift */; };
+		B5B6A6E32D34EC4B00B6ABC5 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A6E22D34EC4B00B6ABC5 /* TabbarView.swift */; };
+		B5B6A6E62D34ED8900B6ABC5 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A6E52D34ED8900B6ABC5 /* FavoriteView.swift */; };
+		B5B6A6E82D35060900B6ABC5 /* ProductCellViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A6E72D35060900B6ABC5 /* ProductCellViewBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		B5B6A6DA2D329B7400B6ABC5 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		B5B6A6DC2D329DD700B6ABC5 /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
 		B5B6A6DF2D32A5F700B6ABC5 /* ProductCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellView.swift; sourceTree = "<group>"; };
+		B5B6A6E22D34EC4B00B6ABC5 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+		B5B6A6E52D34ED8900B6ABC5 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		B5B6A6E72D35060900B6ABC5 /* ProductCellViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +115,6 @@
 				B58B34272D2B23CF00ADB39C /* Authentication */,
 				B58B34112D2B1CA800ADB39C /* SwiftulFirebaseBootcampApp.swift */,
 				B58B34132D2B1CA800ADB39C /* ContentView.swift */,
-				B58B34152D2B1CA900ADB39C /* Assets.xcassets */,
 				B58B34382D2D058300ADB39C /* GoogleService-Info.plist */,
 				B58B34172D2B1CA900ADB39C /* Preview Content */,
 			);
@@ -119,6 +124,7 @@
 		B58B34172D2B1CA900ADB39C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				B58B34152D2B1CA900ADB39C /* Assets.xcassets */,
 				B58B34182D2B1CA900ADB39C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -153,6 +159,8 @@
 		B58B34442D314E5400ADB39C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B5B6A6E42D34ED7200B6ABC5 /* Favorites */,
+				B5B6A6E12D34EC3800B6ABC5 /* Tabbar */,
 				B58B344E2D314FB500ADB39C /* Profile */,
 				B58B34482D314ECD00ADB39C /* Authentication */,
 				B58B34452D314E8800ADB39C /* Settings */,
@@ -219,8 +227,25 @@
 			isa = PBXGroup;
 			children = (
 				B5B6A6DF2D32A5F700B6ABC5 /* ProductCellView.swift */,
+				B5B6A6E72D35060900B6ABC5 /* ProductCellViewBuilder.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		B5B6A6E12D34EC3800B6ABC5 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				B5B6A6E22D34EC4B00B6ABC5 /* TabbarView.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		B5B6A6E42D34ED7200B6ABC5 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				B5B6A6E52D34ED8900B6ABC5 /* FavoriteView.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,8 +346,11 @@
 				B58B342D2D2B254100ADB39C /* AuthenticationManager.swift in Sources */,
 				B5B6A6DB2D329B7400B6ABC5 /* ProductsView.swift in Sources */,
 				B58B34472D314E9E00ADB39C /* SettingsViewModel.swift in Sources */,
+				B5B6A6E62D34ED8900B6ABC5 /* FavoriteView.swift in Sources */,
 				B58B343C2D2D078400ADB39C /* Utilities.swift in Sources */,
+				B5B6A6E82D35060900B6ABC5 /* ProductCellViewBuilder.swift in Sources */,
 				B58B34502D314FC600ADB39C /* ProfileView.swift in Sources */,
+				B5B6A6E32D34EC4B00B6ABC5 /* TabbarView.swift in Sources */,
 				B58B342B2D2B247000ADB39C /* SignInEmailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
