@@ -55,16 +55,6 @@ struct DBUser: Codable {
         self.favoriteMovie = favoriteMovie
     }
     
-    //    func togglePremiumStatus() -> DBUser {
-    //        let currentValue = isPremium ?? false
-    //        return DBUser(userId: userId, isAnonymous: isAnonymous, email: email, photoUrl: photoUrl, dateCreated: dateCreated, isPremium: !currentValue)
-    //    }
-    
-    //    mutating func togglePremiumStatus() {
-    //        let currentValue = isPremium ?? false
-    //        isPremium = !currentValue
-    //    }
-    
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
         case isAnonymous = "is_anonymous"
@@ -142,42 +132,9 @@ final class UserManager {
         try userDocument(userId: user.userId).setData(from: user, merge: false)
     }
     
-    //    func createNewUser(auth: AuthDataResultModel) async throws {
-    //        var userData: [String: Any] = [
-    //            "user_id": auth.uid,
-    //            "is_anonymous": auth.isAnonymous,
-    //            "date_created": Timestamp(),
-    //
-    //        ]
-    //
-    //        if let email = auth.email {
-    //            userData["email"] = email
-    //        }
-    //
-    //        if let photoUrl = auth.photoUrl {
-    //            userData["photo_url"] = photoUrl
-    //        }
-    //
-    //        try await userDocument(userId: auth.uid).setData(userData, merge: false)
-    //    }
-    
     func getUser(userId: String) async throws -> DBUser {
         try await userDocument(userId: userId).getDocument(as: DBUser.self)
     }
-    
-    //    func getUser(userId: String) async throws -> DBUser {
-    //        let snapshot = try await userDocument(userId: userId).getDocument()
-    //        guard let data = snapshot.data(), let userId = data["user_id"] as? String else {
-    //            throw URLError(.badServerResponse)
-    //        }
-    //
-    //        let isAnonymous = data["is_anonymous"] as? Bool
-    //        let email = data["email"] as? String
-    //        let photoUrl = data["photo_url"] as? String
-    //        let dateCreated = data["date_created"] as? Date
-    //
-    //        return DBUser(userId: userId, isAnonymous: isAnonymous, email: email, photoUrl: photoUrl, dateCreated: dateCreated)
-    //    }
     
     func updateUserPremiumStatus(user: DBUser) async throws {
         try  userDocument(userId: user.userId).setData(from: user, merge: true)
@@ -246,54 +203,6 @@ final class UserManager {
     func removeListenerForAllUserFavoriteProducts() {
         self.userFavoriteProductsListener?.remove()
     }
-    
-//    func addListenerForAllUserFavoriteProducts(userId: String, completion: @escaping (_ products: [UserFavoriteProduct]) -> Void) {
-//        self.userFavoriteProductsListener = userFavoriteProductCollection(userId: userId).addSnapshotListener { querySnapshot, error in
-//            guard let documents = querySnapshot?.documents else {
-//                print("No documents")
-//                return
-//            }
-//            
-//            let products: [UserFavoriteProduct] = documents.compactMap { documentSnapshot in
-//                return try? documentSnapshot.data(as: UserFavoriteProduct.self)
-//            }
-//            completion(products)
-//            
-//            querySnapshot?.documentChanges.forEach({ diff in
-//                if diff.type == .added {
-//                    print("New products \(diff.document.data())")
-//                }
-//                
-//                if diff.type == .modified {
-//                    print("Modified products \(diff.document.data())")
-//                }
-//                
-//                if diff.type == .removed {
-//                    print("Removed products \(diff.document.data())")
-//                }
-//            })
-//        }
-//    }
-    
-//    func addListenerForAllUserFavoriteProducts(userId: String) -> AnyPublisher<[UserFavoriteProduct], any Error> {
-//        
-//        let publisher = PassthroughSubject<[UserFavoriteProduct], Error>()
-//        
-//        self.userFavoriteProductsListener = userFavoriteProductCollection(userId: userId).addSnapshotListener { querySnapshot, error in
-//            guard let documents = querySnapshot?.documents else {
-//                print("No documents")
-//                return
-//            }
-//            
-//            let products: [UserFavoriteProduct] = documents.compactMap { documentSnapshot in
-//                return try? documentSnapshot.data(as: UserFavoriteProduct.self)
-//            }
-//            publisher.send(products)
-//            
-//        }
-//        
-//        return publisher.eraseToAnyPublisher()
-//    }
     
     func addListenerForAllUserFavoriteProducts(userId: String) -> AnyPublisher<[UserFavoriteProduct], any Error> {
         let (publisher, listener) = userFavoriteProductCollection(userId: userId)
