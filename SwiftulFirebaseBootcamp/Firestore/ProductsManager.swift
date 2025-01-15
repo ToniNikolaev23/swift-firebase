@@ -28,27 +28,6 @@ final class ProductsManager {
         try await productDocument(productId: productId).getDocument(as: Product.self)
     }
     
-//    private func getAllProducts() async throws -> [Product] {
-//        try await productsCollection
-//            .getDocuments(as: Product.self)
-//    }
-//    
-//    private func getAllProductsSortedByPrice(descending: Bool) async throws -> [Product] {
-//        try await productsCollection.order(by: Product.CodingKeys.price.rawValue, descending: descending).getDocuments(as: Product.self)
-//    }
-//    
-//    private func getAllProductsForCategory(category: String) async throws -> [Product] {
-//        try await productsCollection.whereField(Product.CodingKeys.category.rawValue, isEqualTo: category).getDocuments(as: Product.self)
-//    }
-//    
-//    private func getAllProductsByPrice(descending: Bool, category: String) async throws -> [Product] {
-//        try await productsCollection
-//            .whereField(Product.CodingKeys.category.rawValue, isEqualTo: category)
-//            .order(by: Product.CodingKeys.price.rawValue, descending: descending)
-//            .getDocuments(as: Product.self)
-//
-//    }
-    
     private func getAllProductsQuery()  -> Query {
         productsCollection
     }
