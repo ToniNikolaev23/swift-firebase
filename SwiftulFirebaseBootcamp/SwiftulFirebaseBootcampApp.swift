@@ -17,7 +17,7 @@ struct SwiftulFirebaseBootcampApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            RootView()
+            CrashView()
         }
     }
 }
