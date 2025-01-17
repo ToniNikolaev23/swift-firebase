@@ -43,6 +43,8 @@
 		B5B6A6F32D35B97D00B6ABC5 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A6F22D35B97D00B6ABC5 /* ProductsViewModel.swift */; };
 		B5B6A6F52D38DED700B6ABC5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = B5B6A6F42D38DED700B6ABC5 /* FirebaseCrashlytics */; };
 		B5B6A6F92D38E0BD00B6ABC5 /* CrashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A6F82D38E0BD00B6ABC5 /* CrashView.swift */; };
+		B5B6A6FB2D3A79F200B6ABC5 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = B5B6A6FA2D3A79F200B6ABC5 /* FirebasePerformance */; };
+		B5B6A6FE2D3A7A5F00B6ABC5 /* PerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A6FD2D3A7A5F00B6ABC5 /* PerformanceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,7 @@
 		B5B6A6F02D35B95000B6ABC5 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		B5B6A6F22D35B97D00B6ABC5 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
 		B5B6A6F82D38E0BD00B6ABC5 /* CrashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashView.swift; sourceTree = "<group>"; };
+		B5B6A6FD2D3A7A5F00B6ABC5 /* PerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B6A6FB2D3A79F200B6ABC5 /* FirebasePerformance in Frameworks */,
 				B58B34232D2B206B00ADB39C /* FirebaseAnalytics in Frameworks */,
 				B58B34262D2B237D00ADB39C /* FirebaseAuth in Frameworks */,
 				B58B34342D2D052500ADB39C /* GoogleSignIn in Frameworks */,
@@ -118,6 +122,7 @@
 		B58B34102D2B1CA800ADB39C /* SwiftulFirebaseBootcamp */ = {
 			isa = PBXGroup;
 			children = (
+				B5B6A6FC2D3A7A0D00B6ABC5 /* Performance */,
 				B5B6A6F72D38E0A800B6ABC5 /* Crashlytics */,
 				B5B6A6EC2D35B8FB00B6ABC5 /* Components */,
 				B5B6A6E92D35B8A500B6ABC5 /* Extensions */,
@@ -297,6 +302,14 @@
 			path = Crashlytics;
 			sourceTree = "<group>";
 		};
+		B5B6A6FC2D3A7A0D00B6ABC5 /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				B5B6A6FD2D3A7A5F00B6ABC5 /* PerformanceView.swift */,
+			);
+			path = Performance;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -321,6 +334,7 @@
 				B58B34352D2D052500ADB39C /* GoogleSignInSwift */,
 				B58B34422D314DEB00ADB39C /* FirebaseFirestore */,
 				B5B6A6F42D38DED700B6ABC5 /* FirebaseCrashlytics */,
+				B5B6A6FA2D3A79F200B6ABC5 /* FirebasePerformance */,
 			);
 			productName = SwiftulFirebaseBootcamp;
 			productReference = B58B340E2D2B1CA800ADB39C /* SwiftulFirebaseBootcamp.app */;
@@ -415,6 +429,7 @@
 				B58B34122D2B1CA800ADB39C /* SwiftulFirebaseBootcampApp.swift in Sources */,
 				B58B344D2D314F8E00ADB39C /* SignInEmailViewModel.swift in Sources */,
 				B5B6A6F12D35B95000B6ABC5 /* FavoriteViewModel.swift in Sources */,
+				B5B6A6FE2D3A7A5F00B6ABC5 /* PerformanceView.swift in Sources */,
 				B5B6A6DD2D329DD700B6ABC5 /* ProductsManager.swift in Sources */,
 				B58B342F2D2B287F00ADB39C /* RootView.swift in Sources */,
 				B58B343E2D2D174200ADB39C /* SignInGoogleHelper.swift in Sources */,
@@ -692,6 +707,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B58B34212D2B206B00ADB39C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		B5B6A6FA2D3A79F200B6ABC5 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B58B34212D2B206B00ADB39C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
